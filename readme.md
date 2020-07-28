@@ -10,8 +10,8 @@
 -Expressjs
 -mongoDB
 -nodemon
--jwt
--
+-JSON Web Token
+
 
 ## Instalation
 
