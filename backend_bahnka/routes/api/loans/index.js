@@ -8,6 +8,16 @@ const init = async () =>{
 }
 init()
 
+router.get('/allLoans', async(req,res)=>{
+    try{
+        let loans = await model.getAllLoans()
+        res.status(200).json(loans)
+    }catch(error){
+        console.log(error)
+        res.status(500).json({"ERROR":"Unable to show loans"})
+    }
+})
+
 router.post('/requestLoan', async(req,res)=>{
     try{
         var {loan,paymentFrequency,amountOfPayments,interest} = req.body
@@ -17,6 +27,6 @@ router.post('/requestLoan', async(req,res)=>{
         console.log(error)
         res.status(500).json({"ERROR":"Unable to request loan"})
     }
-})
+})//Request loan POST
 
 module.exports = router;

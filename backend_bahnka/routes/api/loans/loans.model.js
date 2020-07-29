@@ -17,16 +17,28 @@ module.exports = class {
         } 
     }
 
+    static async getAllLoans(){
+        try{
+            if(loansColl){
+                let loans= await loansColl.find()
+                return loans.toArray()
+            }
+            return []
+        }catch(error){
+            console.log(error)
+            return error
+        }
+    }
 
     static async requestLoan(loan,paymentFrequency,amountOfPayments,interest) {
         try {
-            let loan = {
+            let requestedLoan = {
                 loan:loan,
                 paymentFrequency:paymentFrequency,
                 amountOfPayments:amountOfPayments,
                 interest:interest
             }
-            let result = await loansColl.insertOne(loan);
+            let result = await loansColl.insertOne(requestedLoan);
             return result
         }catch(error){
             console.log(error)
