@@ -16,7 +16,7 @@ router.get('/allLoans', async(req,res)=>{
         console.log(error)
         res.status(500).json({"ERROR":"Unable to show loans"})
     }
-})
+})//Show loan GET
 
 router.post('/requestLoan', async(req,res)=>{
     try{
@@ -28,5 +28,17 @@ router.post('/requestLoan', async(req,res)=>{
         res.status(500).json({"ERROR":"Unable to request loan"})
     }
 })//Request loan POST
+
+
+router.delete('/deleteLoan/:loanId', async(req,res)=>{
+    try{
+        const {loanId} = req.params
+        const result = await model.deleteLoan(loanId)
+        res.status(200).json(result)
+    }catch(error){
+        console.log(error);
+        res.status(500).json({"ERROR":"Unable to delete loan"})
+    }
+})
 
 module.exports = router;

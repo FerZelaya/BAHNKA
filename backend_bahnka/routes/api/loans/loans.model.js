@@ -1,4 +1,5 @@
 const db = require('../../dao/db')
+const { ObjectId } = require('mongodb')
 const ObjetId = require('mongodb').ObjectId
 
 
@@ -42,6 +43,17 @@ module.exports = class {
             return result
         }catch(error){
             console.log(error)
+            return error
+        }
+    }
+
+    static async deleteLoan(loanId){
+        try{
+            let filter = {"_id": new ObjectId(loanId)}
+            const result = await loansColl.deleteOne(filter)
+            return result
+        }catch(error){
+            console.log(error);
             return error
         }
     }
