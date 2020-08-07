@@ -1,7 +1,7 @@
 # BAHNKA 
 
 
-## Members
+## Developer
 -Fernando Samuel Zelaya
 
 ## Requisites
@@ -21,9 +21,5 @@ Backend
     npm install
 ```
 
-Frontend
-```
-    cd frontend_bahnka
-    npm install
-```
+
 
