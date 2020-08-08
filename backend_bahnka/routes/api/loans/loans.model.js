@@ -1,6 +1,5 @@
 const db = require('../../dao/db')
-const { ObjectId } = require('mongodb')
-const ObjetId = require('mongodb').ObjectId
+const ObjectId = require('mongodb').ObjectId
 
 
 let loansColl

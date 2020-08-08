@@ -10,6 +10,7 @@ init()
 
 router.get('/allLoans', async(req,res)=>{
     try{
+        //var user = req.user._id
         let loans = await model.getAllLoans()
         res.status(200).json(loans)
     }catch(error){
@@ -21,6 +22,7 @@ router.get('/allLoans', async(req,res)=>{
 router.post('/requestLoan', async(req,res)=>{
     try{
         var {loan,paymentFrequency,amountOfPayments,interest} = req.body
+        //var user = req.body
         var result = await model.requestLoan(loan,paymentFrequency,amountOfPayments,interest)
         res.status(200).json(result)
     } catch(error) {
