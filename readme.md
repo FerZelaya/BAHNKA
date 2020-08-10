@@ -19,6 +19,7 @@ Backend
 ```
     cd backend_bahnka
     npm install
+    npm start
 ```
 
 
